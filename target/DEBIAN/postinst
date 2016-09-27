@@ -1,0 +1,57 @@
+#!/bin/bash
+# Package have been unpacked.
+# configure
+#
+
+service tor stop
+
+# configure users
+adduser --disabled-password --system --shell /bin/bash omb-tor
+adduser --disabled-password --system --shell /bin/bash omb-mailpile
+
+# old conf is in /etc/omb
+
+# requiered-packages.sh
+#if ! grep -R "jessie-backports" /etc/apt/; then
+#  echo "deb http://ftp.debian.org/debian jessie-backports main" > /etc/apt/sources.list.d/omb-jessie-backports.list
+#fi
+
+#if ! grep -R  "security.debian.org" /etc/apt; then
+#  echo "deb http://security.debian.org/ jessie/updates main" >> /etc/apt/sources.list.d/omb-jessie-backports.list
+#fi
+
+
+# configure apache, postfix ...
+
+# from setup-apache.sh
+a2enmod proxy_http
+a2enmod cgi
+a2enmod ssl
+a2dissite "*"
+#rm /etc/apache2/sites-available/*
+#cp apache2-conf/* /etc/apache2/sites-available/
+a2ensite omb-default
+#a2ensite omb-proxy
+service apache2 restart
+#Clean up folders
+#rm -rvf /usr/lib/cgi-bin/*
+#rm -rvf /var/www/*
+
+#Add OK file
+echo "OK" > /var/www/OK
+# END SETUP APACHE
+
+# setup_postfix
+echo "client.omb.one" > /etc/mailname
+mysql --defaults-file=/etc/mysql/debian.cnf </usr/share/omb/postfix-setup-database.sql
+postmap /etc/postfix/relay_password
+service postfix restart
+#end setup postfix
+
+# from setup-startup.sh
+chmod +x /usr/share/omb/ttdnsd-survey.sh
+chmod +x /usr/share/omb/etc/tor-survey.sh
+chmod +x /usr/share/omb/etc/iptables.sh
+chmod +x /usr/share/omb/etc/start-own-mailbox
+# todo: generic startup script
+# end from setup-startup.sh

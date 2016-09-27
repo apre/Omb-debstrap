@@ -1,0 +1,9 @@
+Package: own-mailbox
+Version: 0.1-alpha
+Section: base
+Priority: extra
+Architecture: all
+Depends: apache2, dnsutils, gnupg, iptables, iptables-persistent, libcurl4-openssl-dev, libjpeg9, libxml2, libxslt1.1, mysql-server, ntpdate, openssh-server, openssl, postfix, postfix-mysql, postfix-pcre, procmail, python, python-jinja2, python-lxml, python-pgpdump, python-pip, python-virtualenv, rsyslog, spambayes, sudo, tor, torsocks, wget, zlib1g
+Maintainer: apre <apre@email>
+Description: Own mailbox server that protect your privacy
+Homepage: https://own-mailbox.com/
