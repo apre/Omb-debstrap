@@ -177,7 +177,7 @@ export DEBEMAIL="your email@your domain"
 cd $OMB/Omb-debstrap
 chmod 755 target/DEBIAN/post*
 chmod 755 target/DEBIAN/pre*
-sudo dpkg-deb --build target own-mailbox.deb
+sudo dpkg-deb --build build own-mailbox.deb
 ```
 
 
