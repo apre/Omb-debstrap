@@ -55,3 +55,9 @@ chmod +x /usr/share/omb/etc/iptables.sh
 chmod +x /usr/share/omb/etc/start-own-mailbox
 # todo: generic startup script
 # end from setup-startup.sh
+
+# tor configuration
+chown www-data /etc/omb
+chown owb-tor /var/log/tor.log
+
+echo "AllowInbound 1" >> /etc/tor/torsocks.conf

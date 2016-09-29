@@ -1,3 +1,5 @@
-# directory with external stufs 
-# external OMB repositories
-ext
+# directory with external stufs
+# external  OMB repositories
+ext/*
+*.deb
+build/*
