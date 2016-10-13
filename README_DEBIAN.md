@@ -2,7 +2,6 @@ create a debian package
 
 # The great idea
 
-
 Create a debian package for my old Raspberrypi model B1.
 The build will be performed in a "raspberrypi" virtual machine.
 
@@ -17,6 +16,11 @@ The build will be performed in a "raspberrypi" virtual machine.
 ## Future
 
 * generic debian package (some day?)
+
+## Todo (now)
+
+* required-packages.sh needs to be integrated
+
 
 # get raspberrypi environement
 
