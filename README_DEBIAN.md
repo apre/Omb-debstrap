@@ -20,6 +20,7 @@ The build will be performed in a "raspberrypi" virtual machine.
 ## Todo (now)
 
 * required-packages.sh needs to be integrated
+* during setup, ask if rng-tool needs to be installed
 
 
 # get raspberrypi environement

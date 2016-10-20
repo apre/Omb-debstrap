@@ -10,35 +10,20 @@ if [ "$?" -ne "0" ]; then
   exit 1
 fi
 
-./setup-apache.sh
-if [ "$?" -ne "0" ]; then
-  echo "Error while setting up apache."
-  exit 1
-fi
+# the next sectiion (install-repositories.sh) is made by build-deb.sh
 
-cd Local_postfix_conf && make install && cd ..
-if [ "$?" -ne "0" ]; then
-  echo "Error while setting up postfix."
-  exit 1
-fi
+#./install-repositories.sh
+#if [ "$?" -ne "0" ]; then
+#  echo "Error while installing Own-Mailbox git repositories."
+#  exit 1
+#fi
 
-./install-repositories.sh
-if [ "$?" -ne "0" ]; then
-  echo "Error while installing Own-Mailbox git repositories."
-  exit 1
-fi
-
-./make-users.sh
-if [ "$?" -ne "0" ]; then
-  echo "Error while setting up users."
-  exit 1
-fi
-
+# startup scripts moved to /usr/share/omb/
 ./setup-startup.sh
-if [ "$?" -ne "0" ]; then
-  echo "Error while setting up startup."
-  exit 1
-fi
+#if [ "$?" -ne "0" ]; then
+#  echo "Error while setting up startup."
+#  exit 1
+#fi
 
 ./setup-rng-tool.sh
 if [ "$?" -ne "0" ]; then

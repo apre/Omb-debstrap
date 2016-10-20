@@ -7,3 +7,5 @@ Depends: apache2, dnsutils, gnupg, iptables, iptables-persistent, libcurl4-opens
 Maintainer: apre <apre@email>
 Description: Own mailbox server that protect your privacy
 Homepage: https://own-mailbox.com/
+
+python3-lxml python3-jinja2 python-jinja2 spambayes python3-markupsafe python-markupsafe python-pgpdump python3-pgpdump python-pil python3-pbr python-pbr

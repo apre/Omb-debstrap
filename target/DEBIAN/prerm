@@ -1,4 +1,8 @@
 #!/bin/bash
 
+# TODO: cleanup  /etc/rc.local
+# echo /usr/share/omb/start-own-mailbox >> /etc/rc.local
+
+
 service tor stop
 service apache2 stop

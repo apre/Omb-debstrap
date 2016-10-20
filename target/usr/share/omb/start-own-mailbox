@@ -31,8 +31,9 @@ ttdnsd -l
 echo "nameserver 127.0.0.1" > /etc/resolv.conf
 
 # Launching survey scripts
-/etc/ttdnsd-survey.sh >/dev/null 2>&1 &
-/etc/tor-survey.sh >/dev/null 2>&1 &
+
+/usr/share/omb/ttdnsd-survey.sh >/dev/null 2>&1 &
+/usr/share/omb/tor-survey.sh    >/dev/null 2>&1 &
 
 # Display the IP address
 ip=$(ifconfig eth0 | grep "inet ad" | cut -f2 -d: | awk '{print $1}')
